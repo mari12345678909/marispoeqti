@@ -1,0 +1,18 @@
+{%  extends "base.html" %}
+
+{% block title %}
+   tbc class - adding product
+{% endblock %}
+
+{% block content %}
+<div class="container-md bg-white p-5">
+   <form method="post" enctype="multipart/form-data">
+      {{ form.hidden_tag() }}
+ {{ form.name(class="form-control ", placeholder= form.name.label.text) }}
+ {{ form.price(class="form-control mt-3", placeholder= form.price.label.text) }}
+ {{ form.img(class="form-control mt-3", placeholder= form.img.label.text) }}
+
+  {{ form.submit(class="btn btn-success mt-2") }}
+     </form>
+      {% endblock %}
+</div>

@@ -1,0 +1,92 @@
+{% extends "base.html"  %}
+{% block content %}
+
+<div class="container-md bg-white p-5">
+    <div class="row">
+        <div class="cols">
+            <div id="carouselExampleCaptions" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner H-50% ">
+                    <div class="carousel-item active">
+                        <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwombathillflorist.com.au%2F&psig=AOvVaw3h5rzNCNxWqPP0-helqBi2&ust=1702574805696000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNDh4sj3jIMDFQAAAAAdAAAAABAD"
+                             class="d-block w-100 H-50% " alt="...">
+                        <div class="carousel-caption d-none d-md-block ">
+                            <h5></h5>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <img src="https://scontent.ftbs5-2.fna.fbcdn.net/v/t1.15752-9/393082776_880396543711466_1036285916108952858_n.jpg?stp=dst-jpg_p206x206&_nc_cat=104&ccb=1-7&_nc_sid=510075&_nc_ohc=4FXdeSFv3I8AX-VFeLn&_nc_ht=scontent.ftbs5-2.fna&oh=03_AdRtFqW7f24OKKFJPVHdezqvF92OZtJcEH0JKFb7vdWjMQ&oe=659BEC0E"
+                             class="d-block w-100 H-50% " alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5></h5>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <img src="https://scontent.ftbs5-3.fna.fbcdn.net/v/t1.15752-9/373422296_699956178228870_1991643297280073191_n.jpg?stp=dst-jpg_s261x260&_nc_cat=106&ccb=1-7&_nc_sid=510075&_nc_ohc=lzs9GAtgCQ8AX_nMEFz&_nc_ht=scontent.ftbs5-3.fna&oh=03_AdRPZL7azYPPufDSKrfvjeYonvMvAoIKFoU8Jb2Ys7yZBg&oe=659BD874"
+                             class="d-block w-100 %" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5></h5>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5 " >
+
+        {% for product in products %}
+        <div class="col mt-5">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ product.img }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <h2 class="card-text">{{ product.price }} <sup>₾</sup></h2>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <a href="/view_product/{{ product.id }}" class="btn " style="background-color: pink; color: grey;">კალათაში დამატება</a>
+                    </li>
+                    {% if current_user.role == "admin" %}
+                    <li class="list-group-item">
+                       <a href="/edit_product/{{ product.id }}" class="btn btn-outline-warning">
+                           რედაქტირება
+                       </a>
+                    </li>
+                    <li class="list-group-item">
+                       <a href="/delete_product/{{ product.id }}" class="btn btn-outline-danger">
+                           წაშლა
+                       </a>
+                    </li>
+                    {% endif %}
+
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+        {% endblock %}
+    </div>
+
+
+</div>
