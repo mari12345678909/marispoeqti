@@ -1,5 +1,4 @@
-
-<nav class="navbar navbar-expand-lg" style="background-color: light pink ;">
+<nav class="navbar navbar-expand-lg" style="background-color: white;">
     <div class="container">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -9,35 +8,34 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li>
-                <a href="https://www.tbceducation.ge/" >
-                    <img src="/static/img/tbc.png"
-                    style="width:100px">
-                </a>
+                    <a href="https://www.tbceducation.ge/">
+                        <img src="/static/img/tbc.png" style="width:100px">
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="/">მთავარი</a>
                 </li>
-                  <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link fs-6" href="/about">ჩვენს შესახებ</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link fs-6" href="/add_product">პროდუქტის დამატება</a>
                 </li>
-               <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto">
                     {% if current_user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                            <a class="nav-link" href="{{ url_for('logout') }}" style="color: pink;">Logout</a>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                            <a class="nav-link" href="{{ url_for('login') }}" style="color: pink;">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+                            <a class="nav-link" href="{{ url_for('register') }}" style="color: pink;">Register</a>
                         </li>
-                   {% endif %}
-               </ul>
-          </div>
+                    {% endif %}
+                </ul>
+            </ul>
+        </div>
     </div>
 </nav>
